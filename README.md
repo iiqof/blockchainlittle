@@ -3,16 +3,19 @@ A small implementation of a blockchain ledger.
 
 ## Description 
 
-A small implementation of a blockchain ledger done with Python3 to understand better the technology. Contains two classes:
+A small implementation of a blockchain ledger done with Python3 to understand better the technology. As it is said, it is only the ledger, without any proof of work, validation, distribution mechanisms. 
 
-* Block, a block of the blockchain with an indexm the data that the block chain carries and the previous bloc hash.
-* Blockchain, the ledger 'per se'. It is formed as a python list of Blocks.
-
-This code has the capacity of creating a blockchain as descrived [here](https://unwttng.com/what-is-a-blockchain) [1], and adding blocks with some 'data' or information on them. It can also display the blocks and the state of the blockchain can be saved and loadad from file. 
+This code has the capacity of creating a blockchain as descrived [here](https://unwttng.com/what-is-a-blockchain) [1], and adding blocks with some 'data' or information on them. It can also display the blocks and the state of the blockchain can be saved and loadad to/from a file. 
 
 On the file the block is saved as:
 
  > @block_index%data_on_the_block$hash_of_previous_block
+
+This code contains two classes:
+
+* Block, a block of the blockchain with an indexm the data that the block chain carries and the previous bloc hash.
+* Blockchain, the ledger 'per se'. It is formed as a python list of Blocks.
+
 
 ## Use
 
@@ -27,7 +30,6 @@ On the file the block is saved as:
 3) _Create a block_, 
 
 | block = Block(index, data, previous_block_hash)
-
 
 4) _Add a new block to the blockchain_, creats block (@previous_block_index + 1%data$previosu_block_hash) from the data suplied and adds it to the blockchain.
 
