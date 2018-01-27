@@ -3,7 +3,7 @@ A small implementation of a blockchain ledger.
 
 ## Description 
 
-A small implementation of a blockchain ledger done with Python3 to understand better the technology. As it is said, it is only the ledger, without any proof of work, validation, distribution mechanisms. 
+A small implementation of a blockchain ledger done with Python3 to understand better the technology. As it is said, it is only the ledger, without any proof of work, validation, distribution mechanisms (yet). 
 
 This code has the capacity of creating a blockchain as descrived [here](https://unwttng.com/what-is-a-blockchain) [1], and adding blocks with some 'data' or information on them. It can also display the blocks and the state of the blockchain can be saved and loadad to/from a file. 
 
