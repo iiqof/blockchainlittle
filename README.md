@@ -9,7 +9,7 @@ This code has the capacity of creating a blockchain as descrived [here](https://
 
 On the file the block is saved as:
 
- > #nonce@block_index%data_on_the_block$hash_of_previous_block
+ | #nonce@block_index%data_on_the_block$hash_of_previous_block
 
 This code contains two classes:
 
@@ -21,23 +21,23 @@ This code contains two classes:
 
 1) _Create BlockChain_, this creates an empy blockchain
 
-| blockchain = BlockChain 
+> blockchain = BlockChain 
 
 2) _Initialize the blockchain_, adds a *Genesis Block* (@0%Genesis Block$0) to the blockchain.
 
-| blockchian.initc()
+> blockchian.initc()
 
 3) _Create a block_, 
 
-| block = Block(index, data, previous_block_hash, nonce)
+> block = Block(index, data, previous_block_hash, nonce)
 
 3.5) _Compute a nonce_, finds a valid nonce for a block with difficoulty level.
 
-| block.get_nonce(difficoulty_level)
+> block.get_nonce(difficoulty_level)
 
 4) _Add a new block to the blockchain_, creats block (@previous_block_index + 1%data$previosu_block_hash) from the data suplied and adds it to the blockchain.
 
-| blockcain.accb(data, difficoulty) 
+> blockcain.accb(data, difficoulty) 
 
 The block will be rejected if it doesn't fullfill the difficoulty level (first digits of the hasharen't zero)
 
