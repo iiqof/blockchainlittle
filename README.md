@@ -3,13 +3,13 @@ A small implementation of a blockchain ledger.
 
 ## Description 
 
-A small implementation of a blockchain ledger done with Python3 to understand better the technology. As it is said, it is only the ledger, without any proof of work, validation, distribution mechanisms (yet). 
+A small implementation of a blockchain ledger done with Python3 to understand better the technology. As it is said, it is only the ledger, with a nonce and a proof of work mechanism. There is no distribution mechanisms and selection mechanisms (yet). 
 
 This code has the capacity of creating a blockchain as descrived [here](https://unwttng.com/what-is-a-blockchain) [1], and adding blocks with some 'data' or information on them. It can also display the blocks and the state of the blockchain can be saved and loadad to/from a file. 
 
 On the file the block is saved as:
 
- > @block_index%data_on_the_block$hash_of_previous_block
+ > #nonce@block_index%data_on_the_block$hash_of_previous_block
 
 This code contains two classes:
 
@@ -29,11 +29,17 @@ This code contains two classes:
 
 3) _Create a block_, 
 
-| block = Block(index, data, previous_block_hash)
+| block = Block(index, data, previous_block_hash, nonce)
+
+3.5) _Compute a nonce_, finds a valid nonce for a block with difficoulty level.
+
+| block.get_nonce(difficoulty_level)
 
 4) _Add a new block to the blockchain_, creats block (@previous_block_index + 1%data$previosu_block_hash) from the data suplied and adds it to the blockchain.
 
-| blockcain.nextb(data) 
+| blockcain.accb(data, difficoulty) 
+
+The block will be rejected if it doesn't fullfill the difficoulty level (first digits of the hasharen't zero)
 
 5) _Save the blockchain_
 
@@ -45,9 +51,11 @@ The data has to be the most basic ascii, as the read() function does not take sp
 
 ## TODO:
 
-* Add saveguards for @ $ %    
+* Create a block chain integrity check.
+* Invert the order of the chain so that we have the head of the chian inthe 0th possition.
+* Add saveguards for @ $ % #   
 * Add blockchain analysis (size,...)    
 * Add documentation 
-* Cloning capacities
+
 
  [1] https://unwttng.com/what-is-a-blockchain
