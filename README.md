@@ -51,6 +51,10 @@ There are some extra functions, like display or show the first block of the chai
 
 The data has to be the most basic ascii, as the read() function does not take special characters like Ñ or à. Also  # @ $ % are reserved characters that marck structure on a block.
 
+## License:
+
+I choose to put this work on the public domain. 
+
 ## TODO:
 
 * Create a block chain integrity check.
