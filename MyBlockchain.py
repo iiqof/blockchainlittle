@@ -27,6 +27,7 @@ class Block:
         displayb(self)
         return 0
     
+    
 
 class BlockChain:
     
