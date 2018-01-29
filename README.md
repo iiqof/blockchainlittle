@@ -19,13 +19,11 @@ This code contains two classes:
 
 ## Use
 
-1) _Create BlockChain_, this creates an empy blockchain
+1) _Create BlockChain_, this creates a blockchain with a genesis block. The difficulty is set to find a nonce. If it is zero, there is no need for a nonce.
 
-> blockchain = BlockChain 
+> blockchain = BlockChain(difficulty=0)
 
 2) _Initialize the blockchain_, adds a *Genesis Block* (@0%Genesis Block$0) to the blockchain.
-
-> blockchian.initc()
 
 3) _Create a block_, 
 
@@ -33,7 +31,7 @@ This code contains two classes:
 
 3.5) _Compute a nonce_, finds a valid nonce for a block with difficoulty level.
 
-> block.get_nonce(difficoulty_level)
+> get_nonce(block, difficoulty_level)
 
 4) _Add a new block to the blockchain_, creats block (@previous_block_index + 1%data$previosu_block_hash) from the data suplied and adds it to the blockchain.
 
@@ -45,9 +43,13 @@ The block will be rejected if it doesn't fullfill the difficoulty level (first d
 
 6) _Load a blockchain_
 
+
+There are some extra functions, like display or show the first block of the chain. 
+
+
 ## Warnings:
 
-The data has to be the most basic ascii, as the read() function does not take special characters like Ñ or à. Also @ $ % are reserved characters that marck structure on a block.
+The data has to be the most basic ascii, as the read() function does not take special characters like Ñ or à. Also  # @ $ % are reserved characters that marck structure on a block.
 
 ## TODO:
 
@@ -56,6 +58,6 @@ The data has to be the most basic ascii, as the read() function does not take sp
 * Add saveguards for @ $ % #   
 * Add blockchain analysis (size,...)    
 * Add documentation 
-
+* 
 
  [1] https://unwttng.com/what-is-a-blockchain
