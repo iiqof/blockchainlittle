@@ -6,24 +6,30 @@ class Block:
         self.prebhash = prebhash # Hash of the previous block
         self.nonce = nonce
 
+
+    def ascii_form(self):
+        """ Defines the standart form, how it is stored in the distributed chain, and how it is hashed"""
+    
+        return '{{\n    {inx : %d }\n    {msg : %s }\n    {phs : %d }\n    {nnc : %d }\n}}'%(self.bindex, self.bdata, self.prebhash, self.nonce)
+
     def write_block(self):
-    """Prints the actual block, in the form:
-
-{{
-    {inx : sel.bindex }
-    {msg : self.bdata }
-    {phs : self.prebhash }
-    {nnc : self.nonce }   
-}}
+        """Prints the actual block, in the ascii form."""
+    
+	print(self.ascii_form())
 
 
-This is the form that is also hashed later
- """
-	print('{{\n    {inx : %d }\n    {msg : %s }\n    {phs : %d }\n    {nnc : %d }\n}}'%(self.bindex, self.bdata, self.prebhash, self.nonce))
 def createGenb():
-    return Block(0, "Genesis Block", "0")
+    """ Defines the first block of the chain. """
+    return Block(0, "Genesis Block", 0)
 
+
+
+### Test operations
 
 B = Block(0, "Hello World", 0)
 
+G = createGenb()
+
 B.write_block()
+
+G.write_block()
