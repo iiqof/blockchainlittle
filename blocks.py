@@ -57,15 +57,16 @@ class BlockChain:
 
 
 
-########3### Test operations##############
+############ Test operations##############
 
 B = Block(0, "Hello World", 0)
 
 G = createGenb()
 
-B.write_block()
+print(B.ascii_form())
 
-G.write_block()
+print(G.ascii_form())
+
 
 print('Round 2 ........ BlockChain')
 C = BlockChain()
