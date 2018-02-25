@@ -10,17 +10,12 @@ This code has the capacity of creating a blockchain as descrived [here](https://
 On the file the block is saved as:
 
  
->{{
-
->    {inx : %d }
-
->    {msg : %s }
-
->    {phs : %d }
-
->    {nnc : %d }
-
->}}
+{{
+    {inx : %d }
+    {msg : %s }
+    {phs : %d }
+    {nnc : %d }
+}}
 This code contains two classes:
 
 * Block, a block of the blockchain with an indexm, the data that the block chain carries, the previous bloc hash and the nonce.
