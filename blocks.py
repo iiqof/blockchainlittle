@@ -25,7 +25,7 @@ class Block:
     def ascii_form(self):
         """ Defines the standard form, how it is stored in the distributed chain, and how it is hashed"""
     
-        return "{\n \'inx\' : %d,\n  \'msg\' : \'%s\',\n  \'phs\' : %d,\n  \'nnc\' : %d\n}" % (self.bindex, self.bdata, self.prebhash, self.nonce)
+        return "{ \'inx\' : %d, \'msg\' : \'%s\', \'phs\' : %d, \'nnc\' : %d}" % (self.bindex, self.bdata, self.prebhash, self.nonce)
 
 
 def load(block_ascii):
@@ -63,39 +63,13 @@ class BlockChain:
         return ascii
 
 
-############ Test operations##############
-
-B = Block(0, "Hello World", 0)
-
-G = createGenb()
-
-print(B.ascii_form())
-
-print(G.ascii_form())
-
-BB = load(B.ascii_form())
-
-BBC = load("{ \
- 'inx' : 0, \
-  'msg' : 'Loaded Baby', \
-  'phs' : 0, \
-  'nnc' : 0 \
-}")
-
-print(BB.ascii_form() == B.ascii_form())
-
-print('\n' + '\n' + 'Round 2 ........ BlockChain')
-C = BlockChain()
-
-C.add_block(G)
-
-C.add_block(B)
-
-C.add_block(BB)
-
-C.add_block(BBC)
 
 
-print(C.ascii_form())
-
+def load_chain(file):
+    with open(file) as f:
+        BChain = BlockChain()
+        chain = f.readlines()
+        for block in chain:
+            BChain.add_block(load(block))
+    return BChain
 
