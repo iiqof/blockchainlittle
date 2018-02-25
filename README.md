@@ -11,10 +11,15 @@ On the file the block is saved as:
 
  
 >{{
+
 >    {inx : %d }
+
 >    {msg : %s }
+
 >    {phs : %d }
+
 >    {nnc : %d }
+
 >}}
 This code contains two classes:
 
