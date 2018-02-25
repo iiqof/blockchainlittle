@@ -1,5 +1,5 @@
 text.txt
 BlockChain
-blocks.pyc
+*.pyc
 blocks.py.save
 .idea

@@ -42,9 +42,6 @@ I choose to put this work on the public domain.
 ## TODO:
 
 * UPDATE README WITH NEW FORMAT
-* Create the block parser and implement block and chain reading and loading from file.
-* New module with the block and chain validation rutines, based on PoW. 
-* New module with block creation.
-* 
+* Validate the genesis block on the validate_chain_zero function
 
  [1] https://unwttng.com/what-is-a-blockchain

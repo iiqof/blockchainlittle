@@ -15,43 +15,42 @@ class Block:
 
     """ Memory structure for the Block. With the ability to write to ascii and load form ascii the structure.  """
 
-    def __init__(self, bindex, bdata, prebhash, nonce=0):
-        self.bindex = int(bindex)        # Block index
-        self.bdata = str(bdata)          # Message that goes to the block
-        self.prebhash = int(prebhash)    # Hash of the previous block
-        self.nonce = int(nonce)          # Nonce of this block
-
+    def __init__(self, bindex=0, bdata='', prebhash='0', nonce='0', dfty=0):
+        self.memblock = {'inx' : int(bindex),    # Block index
+                         'msg' : str(bdata),     # Message that goes to the block
+                         'phs' : str(prebhash),  # Hash of the previous block
+                         'nnc' : str(nonce),     # Nonce for this block
+                         'dft' : int(dfty)       # Difficulty of the next block
+                        }
 
     def ascii_form(self):
         """ Defines the standard form, how it is stored in the distributed chain, and how it is hashed"""
     
-        return "{ \'inx\' : %d, \'msg\' : \'%s\', \'phs\' : %d, \'nnc\' : %d}" % (self.bindex, self.bdata, self.prebhash, self.nonce)
+        return str(self.memblock)
 
 
 def load(block_ascii):
         """Transforms a valid ascii string into a memory structure block"""
         block = ast.literal_eval(block_ascii)
-        return Block(block['inx'], block['msg'], block['phs'], block['nnc'])
+        return Block(int(block['inx']), block['msg'], str(block['phs']), str(block['nnc']), int(block['dft']))
 
 
-def createGenb():
+def creategenb():
     """ Defines the first block of the chain. """
-    return Block(0, "Genesis Block", 0)
-
-
+    return Block(0, "Genesis Block", '0')
 
 
 class BlockChain:
     
     def __init__(self):
-        self.clenght = 0
+        self.clength = 0
         self.chain = []
 
         
     def add_block(self, block):
         """ Adds a block to the memory structure of the chain """
         self.chain.append(block)
-        self.clenght += 1
+        self.clength += 1
         return 0
 
     def ascii_form(self):
@@ -61,8 +60,6 @@ class BlockChain:
         for block in self.chain:
             ascii += block.ascii_form() + '\n'
         return ascii
-
-
 
 
 def load_chain(file):
